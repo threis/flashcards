@@ -19,7 +19,7 @@
         <div class="wrapper">
             <h2>Informe o frente e verso do cartão:</h2>
 
-            <form onsubmit="handleAddFlashCards()">
+            <form onsubmit="handleAddFlashCards(event)">
                 <input name="front" type="text" placeholder="Frente" required />
                 <input name="back" type="text" placeholder="Verso" required />
                 <button type="submit">Adicionar</button>
@@ -30,4 +30,5 @@
 
     <script src="scripts.js"></script>
 </body>
+
 </html>
