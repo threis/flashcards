@@ -16,9 +16,14 @@ function handleAddFlashCards(event) {
         }),
         headers: {
             'Content-Type': 'application/json'
-
         }
     }).then(document.querySelector('form').front.value = '')
         .then(document.querySelector('form').back.value = '')
         .catch(err => console.log(`Error: ${err}`));
+}
+
+function handleCloseWindow() {
+    const electron = require('electron');
+    const ipc = electron.ipcRenderer;
+    ipc.send('close-add-flashcards')
 }

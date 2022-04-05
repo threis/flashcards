@@ -15,14 +15,18 @@
 
 <body>
 
-    <h2>Main</h2>
+    <h2>Flashcards</h2>
     <button onclick="handleAddFlashcards()">Novo Flashcards</button>
+    <button onclick="handleStart()">Começar</button>
 
     <script>
         const electron = require('electron');
         const ipc = electron.ipcRenderer;
         function handleAddFlashcards() {
             ipc.send('open-add-flashcards')
+        }
+        function handleStart(){
+            ipc.send('open-start-flashcards')
         }
     </script>
 </body>
