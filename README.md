@@ -1,12 +1,10 @@
-***
-    FlashCards
-***
+## FlashCards
 
 This is an example to use nextJS with electron and typescript to create a project flashcards!
 
-This application is under development
+:construction: :construction: This application is under development :construction: :construction:
 
-Propose to this project to create simple functionalities:
+#### Propose to this project to create simple functionalities:
 
 [ ] create function to add new flashcards
 
