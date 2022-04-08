@@ -1,18 +1,40 @@
 {
-  "name": "flashcards",
+  "name": "NextJSElectron",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
+  "private": true,
+  "main": "main/index.js",
+  "productName": "ElectronTypescriptNext",
   "scripts": {
-    "dev": "electron .",
-    "server": "json-server --watch db.json"
+    "clean": "rimraf dist main renderer/out renderer/.next",
+    "dev": "npm run build-electron && electron .",
+    "build-renderer": "next build renderer && next export renderer",
+    "build-electron": "tsc -p electron-src",
+    "build": "npm run build-renderer && npm run build-electron",
+    "pack-app": "npm run build && electron-builder --dir",
+    "dist": "npm run build && electron-builder",
+    "type-check": "tsc"
   },
   "dependencies": {
-    "axios": "^0.26.1",
-    "electron": "^18.0.1",
-    "uuid": "^8.3.2"
+    "electron-is-dev": "^1.1.0",
+    "electron-next": "^3.1.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "json-server": "^0.17.0"
+    "@types/node": "^14.14.6",
+    "@types/react": "^16.9.9",
+    "@types/react-dom": "^16.9.9",
+    "electron": "^13",
+    "electron-builder": "^22.9.1",
+    "next": "latest",
+    "rimraf": "^3.0.0",
+    "typescript": "^4.0.5"
+  },
+  "build": {
+    "asar": true,
+    "files": [
+      "main",
+      "renderer/out"
+    ]
   }
 }
