@@ -12,14 +12,15 @@ app.on('ready', async () => {
 	await prepareNext('./renderer')
 
 	const mainWindow = new BrowserWindow({
-		width: 800,
-		height: 600,
+		show: false,
 		webPreferences: {
 			nodeIntegration: false,
 			contextIsolation: false,
 			preload: join(__dirname, 'preload.js'),
 		},
 	})
+	mainWindow.maximize()
+	mainWindow.show()
 
 	const url = isDev
 		? 'http://localhost:8000/'
