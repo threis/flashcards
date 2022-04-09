@@ -10,18 +10,32 @@ export const Sidebar = styled.div`
 
 export const Logo = styled.div`
     width: 100%;
-    height: 16rem;
-    background-color: var(--purple);
+    height: 18rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 `
+
+export const Text = styled.h1`
+    font-size: 2rem;
+    color: var(--purple);
+    font-weight: 900;
+    letter-spacing: .3rem;
+`
+
 export const Options = styled.ul`
     width: 100%;
-    height: calc(100vh - 16rem) ;
+    height: calc(100vh - 18rem) ;
 `
-export const MenuItem = styled.li`
+interface MenuItemProps {
+    activated: boolean;
+}
+
+export const MenuItem = styled.li<MenuItemProps>`
     width: 100%;
     padding: 1rem 0 1rem 3rem;
     font-weight: 800;
-    color: var(--black);
     font-size: 1.2rem;
 
     a{
@@ -30,11 +44,8 @@ export const MenuItem = styled.li`
         text-decoration: none;
         display: flex;
         align-items: center;
+        color: ${props => props.activated ? 'var(--purple)' : 'var(--black)'};
         
-        &:visited{
-            color: var(--black);
-        }
-
         &:hover{
             color: var(--purple);
         }

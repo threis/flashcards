@@ -5,6 +5,7 @@ export const GlobalStyle = createGlobalStyle`
   :root{
     --purple:#9980FA;
     --black: #2F3742;
+    --gray: #a2a2a2;
   }
 
   * {
@@ -16,6 +17,7 @@ export const GlobalStyle = createGlobalStyle`
 
   button{
     cursor: pointer;
+    border: none;
   }
 
   li{

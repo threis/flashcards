@@ -1,17 +1,25 @@
 import Link from 'next/link'
+import Image from 'next/image'
+import { useRouter } from 'next/router'
 import { BsPlusLg } from 'react-icons/bs'
 import { HiOutlineHome, HiOutlineViewGrid } from 'react-icons/hi'
 import { VscDebugStart } from 'react-icons/vsc'
-import { Logo, MenuItem, Options, Sidebar } from './styles'
+import { Logo, Text, MenuItem, Options, Sidebar } from './styles'
 
 
 
 export function Menu() {
+
+	const router = useRouter()
+
 	return (
 		<Sidebar>
-			<Logo />
+			<Logo>
+				<Image src="/assets/images/logo.jpg" alt="Flashcards logo" width="200" height="200" />
+				<Text>Flashcards</Text>
+			</Logo>
 			<Options>
-				<MenuItem>
+				<MenuItem activated={router.asPath === '/'}>
 					<Link href="/">
 						<a>
 							<HiOutlineHome />
@@ -19,7 +27,7 @@ export function Menu() {
 						</a>
 					</Link>
 				</MenuItem>
-				<MenuItem>
+				<MenuItem activated={router.asPath === '/add'}>
 					<Link href="/add">
 						<a>
 							<BsPlusLg />
@@ -27,7 +35,7 @@ export function Menu() {
 						</a>
 					</Link>
 				</MenuItem>
-				<MenuItem>
+				<MenuItem activated={router.asPath === '/view'}>
 					<Link href="/view">
 						<a>
 							<HiOutlineViewGrid />
@@ -35,7 +43,7 @@ export function Menu() {
 						</a>
 					</Link>
 				</MenuItem>
-				<MenuItem>
+				<MenuItem activated={router.asPath === '/start'}>
 					<Link href="/start">
 						<a>
 							<VscDebugStart />
