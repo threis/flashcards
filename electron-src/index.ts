@@ -59,6 +59,22 @@ ipcMain.on('add-flashcard', (_, card: any) => {
 
 ipcMain.on('view-flashcard', (event: IpcMainEvent) => {
 
-	const data = load(userDataPath, true)
+	const data = load(userDataPath)
 	event.sender.send('view-flashcard', data)
+})
+
+ipcMain.on('edit-flashcard', (event: IpcMainEvent, updatedCard: any) => {
+
+	const data = load(userDataPath)
+	const updatedDeck = data.map((card: any) => {
+		if (card.id === updatedCard.id) {
+			return updatedCard
+		} else {
+			return card
+		}
+	})
+
+	save(userDataPath, updatedDeck)
+	event.sender.send('view-flashcard', updatedDeck)
+
 })

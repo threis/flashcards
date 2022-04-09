@@ -1,5 +1,5 @@
-import { Container } from '../components/container'
-import { HeaderTitle } from '../components/header-title'
+import { Container } from '../components/templates/container'
+import { HeaderTitle } from '../components/templates/header-title'
 import { Menu } from '../components/templates/menu'
 import { View as Content } from '../components/view'
 

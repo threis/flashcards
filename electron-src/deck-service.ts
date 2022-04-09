@@ -4,18 +4,17 @@ import path from 'path'
 const DB_FILE_NAME = 'deck_db.json'
 
 export function save(userDataPath: string, data: any) {
-
 	const dirDatabase = path.resolve(userDataPath, 'database')
-	fs.writeFile(`${dirDatabase}\\${DB_FILE_NAME}`, JSON.stringify(data), null, (err) => err ?? console.log(`method_save_err: ${err}`))
+	fs.writeFile(`${dirDatabase}\\${DB_FILE_NAME}`, JSON.stringify(data), null, () => console.log())
 }
 
-export function load(userDataPath: string, returnAsString = false) {
+export function load(userDataPath: string) {
 
 	const dirDatabase = path.resolve(userDataPath, 'database')
 
 	const data = fs.readFileSync(`${dirDatabase}\\${DB_FILE_NAME}`, 'utf8')
 	const file = data.toString()
-	return returnAsString ? file : JSON.parse(file)
+	return JSON.parse(file)
 
 }
 

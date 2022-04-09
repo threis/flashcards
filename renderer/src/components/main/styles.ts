@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 export const Dashboard = styled.div`
-    width: 100%;
+    width: 70%;
     height: 300px;
-    margin: 10rem 5rem 0;
+    margin: 10rem auto;
     position: relative;
     background-color: var(--purple);
     border-radius: 1rem;

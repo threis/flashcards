@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useEffect } from 'react'
-import { ICard } from '../types/card'
+import { ICard } from '../../types/card'
 import { AiFillDelete } from 'react-icons/ai'
 import { RiPencilFill } from 'react-icons/ri'
 import { Wrapper, Card, CardFront, CardBack, GroupButton, Button } from './styles'
@@ -13,7 +13,7 @@ export function View() {
 
 	useEffect(() => {
 		global.ipcRenderer.addListener('view-flashcard', (_, data) => {
-			setDeck(JSON.parse(data))
+			setDeck(data)
 		})
 		global.ipcRenderer.send('view-flashcard')
 	}, [])
@@ -31,23 +31,29 @@ function render(deck: ICard[]) {
 		return <h1>Carregando...</h1>
 	}
 
-	function handleEditCard() {
+	function handleEditCard(card: ICard) {
+		setCardSelected(card)
 		setToggleEditModal(true)
-		console.log()
 	}
 
 	function handleDeleteCard() {
 		console.log()
 	}
 
+	function handleCloseModal() {
+		setToggleEditModal(false)
+		global.ipcRenderer.send('view-flashcard')
+	}
+
 	return (
 		<Wrapper>
 			{
 				deck.map(card => {
+					const { id, question, answer } = card
 					return (
-						<Card key={card.id}>
+						<Card key={id}>
 							<GroupButton>
-								<Button onClick={() => handleEditCard()}>
+								<Button onClick={() => handleEditCard(card)}>
 									<RiPencilFill />
 								</Button>
 								<Button>
@@ -56,17 +62,17 @@ function render(deck: ICard[]) {
 							</GroupButton>
 							<CardFront>
 								<h3>Pergunta:</h3>
-								<p>{card.question}</p>
+								<p>{question}</p>
 							</CardFront>
 							<CardBack>
 								<h3>Resposta:</h3>
-								<p>{card.answer}</p>
+								<p>{answer}</p>
 							</CardBack>
 						</Card>
 					)
 				})
 			}
-			<ViewModalEdit card={cardSelected} openEditModal={toggleEditModal} onRequestClose={() => setToggleEditModal(false)} />
+			<ViewModalEdit card={cardSelected} openEditModal={toggleEditModal} onRequestClose={handleCloseModal} />
 			<ViewModalDelete />
 		</Wrapper>
 	)

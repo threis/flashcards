@@ -1,8 +1,8 @@
 import React from 'react'
 import { Menu } from '../components/templates/menu'
-import { Container } from '../components/container'
+import { Container } from '../components/templates/container'
 import { Main } from '../components/main'
-import { HeaderTitle } from '../components/header-title'
+import { HeaderTitle } from '../components/templates/header-title'
 
 export default function IndexPage() {
 	return (

@@ -3,24 +3,24 @@ import { HiOutlinePencil } from 'react-icons/hi'
 import { Button } from '../templates/button'
 import { Input } from '../templates/input'
 import { FormContainer, Box, Text, InsideButton } from './styles'
-import { FormEvent, useEffect } from 'react'
+import { FormEvent } from 'react'
 import { useState } from 'react'
+import { toast } from 'react-toastify'
+import { v4 as uuidv4 } from 'uuid'
 
 export function Add() {
 
 	const [question, setQuestion] = useState('')
 	const [answer, setAnswer] = useState('')
 
-	useEffect(() => {
-		global.ipcRenderer.addListener('add-flashcard', () => console.log('send add-flashcard'))
-	}, [])
-
-
 	function handleFormAdd(event: FormEvent) {
 		event.preventDefault()
 
-		global.ipcRenderer.send('add-flashcard', { question, answer })
+		const id = uuidv4()
+
+		global.ipcRenderer.send('add-flashcard', { id, question, answer })
 		handleClearForm()
+		toast.success('Flashcard salvo com sucesso')
 
 	}
 
@@ -46,7 +46,7 @@ export function Add() {
 						<span>Incluir</span>
 					</InsideButton>
 				</Button>
-				<Button userStyle='gray' onClick={() => handleClearForm()}>
+				<Button userStyle='gray' onClick={() => handleClearForm()} type="reset">
 					<InsideButton>
 						<MdClear />
 						<span>Cancelar</span>

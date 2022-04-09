@@ -1,10 +1,14 @@
 import React from 'react'
 import type { AppProps } from 'next/app'
 import Modal from 'react-modal'
+Modal.setAppElement('#__next')
+
+
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import { GlobalStyle } from '../globalStyles'
 
-Modal.setAppElement('#__next')
 
 export default function App({ Component, pageProps }: AppProps) {
 
@@ -14,6 +18,7 @@ export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<>
 			<GlobalStyle />
+			<ToastContainer autoClose={3000}/>
 			<MyComponent {...pageProps} />
 		</>
 	)

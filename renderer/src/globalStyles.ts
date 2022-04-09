@@ -6,6 +6,10 @@ export const GlobalStyle = createGlobalStyle`
     --purple:#9980FA;
     --black: #2F3742;
     --gray: #a2a2a2;
+
+    //Edit toast variables
+    --toastify-color-success: var(--purple);
+    --toastify-color-error: var(--black);
   }
 
   * {
@@ -24,6 +28,7 @@ export const GlobalStyle = createGlobalStyle`
       list-style-type: none;
   }
 
+  //Modal style
   .react-modal-overlay{
       background: rgba(0,0,0,0.5);
       position: fixed;
@@ -57,6 +62,7 @@ export const GlobalStyle = createGlobalStyle`
       background: transparent;
       cursor: pointer;
       transition: all 0.2s;
+      font-size: 1.5rem;
 
       &:hover{
         color:  var(--purple)
