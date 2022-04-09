@@ -1,8 +1,10 @@
 import React from 'react'
 import type { AppProps } from 'next/app'
+import Modal from 'react-modal'
 
 import { GlobalStyle } from '../globalStyles'
 
+Modal.setAppElement('#__next')
 
 export default function App({ Component, pageProps }: AppProps) {
 

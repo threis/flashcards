@@ -23,4 +23,44 @@ export const GlobalStyle = createGlobalStyle`
   li{
       list-style-type: none;
   }
+
+  .react-modal-overlay{
+      background: rgba(0,0,0,0.5);
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 998;
+  }
+
+  .react-modal-content{
+      width: 100%;
+      min-height: 400px;
+      max-width: 680px;
+      background: white;
+      padding: 3rem;
+      position: relative;
+      border-radius: 0.25rem;
+      z-index: 999;
+  }
+
+  .react-modal-close{
+      position: absolute;
+      right: 1.5rem;
+      top: 1.5rem;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+
+      &:hover{
+        color:  var(--purple)
+      }
+  }
 `
+

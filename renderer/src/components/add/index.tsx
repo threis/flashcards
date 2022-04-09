@@ -5,7 +5,6 @@ import { Input } from '../templates/input'
 import { FormContainer, Box, Text, InsideButton } from './styles'
 import { FormEvent, useEffect } from 'react'
 import { useState } from 'react'
-import { Deck } from '../types/deck'
 
 export function Add() {
 
