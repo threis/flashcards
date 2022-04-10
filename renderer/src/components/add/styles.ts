@@ -6,6 +6,7 @@ export const FormContainer = styled.form`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    width: 100%;
 `
 
 export const Box = styled.div`

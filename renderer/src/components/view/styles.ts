@@ -5,8 +5,9 @@ export const Wrapper = styled.div`
      flex-direction: row;
      align-self: flex-start;
      flex-wrap: wrap;
-     max-width: 70%;
+     justify-content: space-around;
      margin: 10rem auto;
+     width: 99%;
 `
 
 export const Card = styled.div`
