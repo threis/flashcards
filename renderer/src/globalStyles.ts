@@ -17,6 +17,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: 'Source Sans Pro';
+    outline-color: var(--black);
   }
 
   button{
@@ -63,9 +64,13 @@ export const GlobalStyle = createGlobalStyle`
       cursor: pointer;
       transition: all 0.2s;
       font-size: 1.5rem;
-
+      font-weight: bold;
+      padding: .2rem;
+      outline-color: var(--black);
+      
       &:hover{
-        color:  var(--purple)
+        color: var(--purple);
+        outline-color: var(--purple);
       }
   }
 `

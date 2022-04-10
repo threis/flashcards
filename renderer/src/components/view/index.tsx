@@ -26,6 +26,7 @@ function render(deck: ICard[]) {
 
 	const [cardSelected, setCardSelected] = useState<ICard>({} as ICard)
 	const [toggleEditModal, setToggleEditModal] = useState(false)
+	const [toggleDeleteModal, setToggleDeleteModal] = useState(false)
 
 	if (!deck || deck.length === 0) {
 		return <h1>Carregando...</h1>
@@ -36,13 +37,17 @@ function render(deck: ICard[]) {
 		setToggleEditModal(true)
 	}
 
-	function handleDeleteCard() {
-		console.log()
+	function handleCloseEditModal() {
+		setToggleEditModal(false)
 	}
 
-	function handleCloseModal() {
-		setToggleEditModal(false)
-		global.ipcRenderer.send('view-flashcard')
+	function handleDeleteCard(card: ICard) {
+		setCardSelected(card)
+		setToggleDeleteModal(true)
+	}
+
+	function handleCloseDeleteModal() {
+		setToggleDeleteModal(false)
 	}
 
 	return (
@@ -57,7 +62,7 @@ function render(deck: ICard[]) {
 									<RiPencilFill />
 								</Button>
 								<Button>
-									<AiFillDelete onClick={() => handleDeleteCard()} />
+									<AiFillDelete onClick={() => handleDeleteCard(card)} />
 								</Button>
 							</GroupButton>
 							<CardFront>
@@ -72,8 +77,8 @@ function render(deck: ICard[]) {
 					)
 				})
 			}
-			<ViewModalEdit card={cardSelected} openEditModal={toggleEditModal} onRequestClose={handleCloseModal} />
-			<ViewModalDelete />
+			<ViewModalEdit card={cardSelected} openEditModal={toggleEditModal} onRequestClose={handleCloseEditModal} />
+			<ViewModalDelete card={cardSelected} openDeleteModal={toggleDeleteModal} onRequestClose={handleCloseDeleteModal} />
 		</Wrapper>
 	)
 

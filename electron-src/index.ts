@@ -65,14 +65,24 @@ ipcMain.on('view-flashcard', (event: IpcMainEvent) => {
 
 ipcMain.on('edit-flashcard', (event: IpcMainEvent, updatedCard: any) => {
 
-	const data = load(userDataPath)
-	const updatedDeck = data.map((card: any) => {
+	const fullDeck = load(userDataPath)
+	const updatedDeck = fullDeck.map((card: any) => {
 		if (card.id === updatedCard.id) {
 			return updatedCard
 		} else {
 			return card
 		}
 	})
+
+	save(userDataPath, updatedDeck)
+	event.sender.send('view-flashcard', updatedDeck)
+
+})
+
+ipcMain.on('delete-flashcard', (event: IpcMainEvent, deletedCard: any) => {
+
+	const fullDeck = load(userDataPath)
+	const updatedDeck = fullDeck.filter((card: any) => card.id !== deletedCard.id)
 
 	save(userDataPath, updatedDeck)
 	event.sender.send('view-flashcard', updatedDeck)
