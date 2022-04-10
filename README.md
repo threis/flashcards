@@ -6,10 +6,10 @@ This is an example to use nextJS with electron and typescript to create a projec
 
 #### Propose to this project to create simple functionalities:
 
-[ ] create function to add new flashcards
+[x] create function to add new flashcards
 
-[ ] save flashcards in json file
+[x] save flashcards in json file
 
-[ ] load cards from json file in order
+[x] load cards from json file in order
 
-[ ] show to user first question then answer
+[x] show to user first question then answer
