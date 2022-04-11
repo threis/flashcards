@@ -1,21 +1,27 @@
 import { join } from 'path'
 import { format } from 'url'
 
-import { BrowserWindow, app, ipcMain, IpcMainEvent } from 'electron'
+import { BrowserWindow, app, ipcMain, IpcMainEvent, nativeImage } from 'electron'
 import isDev from 'electron-is-dev'
 import prepareNext from 'electron-next'
 import { createDir, existDb, load, save } from './deck-service'
 
 const userDataPath = app.getPath('userData')
+const icon = nativeImage.createFromPath(`${app.getAppPath()}/public/icon.png`)
 
 app.on('ready', async () => {
 	await prepareNext('./renderer')
 
+	if (app.dock) {
+		app.dock.setIcon(icon)
+	}
+
 	const mainWindow = new BrowserWindow({
+		icon,
 		width: 1000,
 		height: 800,
 		show: false,
-		// resizable: false,
+		resizable: false,
 		autoHideMenuBar: true,
 		webPreferences: {
 			nodeIntegration: false,
