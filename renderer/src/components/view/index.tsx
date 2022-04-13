@@ -29,7 +29,7 @@ function render(deck: ICard[]) {
 	const [toggleDeleteModal, setToggleDeleteModal] = useState(false)
 
 	if (!deck || deck.length === 0) {
-		return <h1>Carregando...</h1>
+		return <h1>Você ainda não tem flashcards cadastrados</h1>
 	}
 
 	function handleEditCard(card: ICard) {

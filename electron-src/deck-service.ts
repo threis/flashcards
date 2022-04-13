@@ -9,13 +9,16 @@ export function save(userDataPath: string, data: any) {
 }
 
 export function load(userDataPath: string) {
+	try {
+		const dirDatabase = path.resolve(userDataPath, 'database')
 
-	const dirDatabase = path.resolve(userDataPath, 'database')
+		const data = fs.readFileSync(`${dirDatabase}\\${DB_FILE_NAME}`, 'utf8')
+		const file = data.toString()
+		return JSON.parse(file)
+	} catch {
+		return []
 
-	const data = fs.readFileSync(`${dirDatabase}\\${DB_FILE_NAME}`, 'utf8')
-	const file = data.toString()
-	return JSON.parse(file)
-
+	}
 }
 
 export function createDir(userDataPath: string) {

@@ -1,12 +1,9 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { BsPlusLg } from 'react-icons/bs'
 import { HiOutlineHome, HiOutlineViewGrid } from 'react-icons/hi'
 import { VscDebugStart } from 'react-icons/vsc'
 import { Logo, Text, MenuItem, Options, Sidebar } from './styles'
-
-
 
 export function Menu() {
 
@@ -15,7 +12,7 @@ export function Menu() {
 	return (
 		<Sidebar>
 			<Logo>
-				<Image src="/assets/images/logo.jpg" alt="Flashcards logo" width="200" height="200" />
+				<img src="/static/logo.png" alt="Flashcards logo" width="200" height="200" />
 				<Text>Flashcards</Text>
 			</Logo>
 			<Options>
