@@ -32,7 +32,7 @@ export const Text = styled.p`
 
 export const Button = styled.button`
     background-color: var(--purple);
-    color: white;
+    color: var(--white);
     padding: 1rem 3rem;
     font-size: 2rem;
     border-radius: .125rem;

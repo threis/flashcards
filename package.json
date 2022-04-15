@@ -50,7 +50,7 @@
       "renderer/out"
     ],
     "win": {
-      "icon": "./public/icon.png"
+      "icon": "./public/icon.ico"
     }
   }
 }

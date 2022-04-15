@@ -10,6 +10,15 @@ export const Wrapper = styled.div`
      width: 99%;
 `
 
+export const Box = styled.div`
+    margin: auto;
+    width: 99%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+`
+
 export const Card = styled.div`
     position: relative;
     display: flex;
@@ -18,7 +27,7 @@ export const Card = styled.div`
     margin: 1rem;
     width: 24rem;
     background-color: var(--purple);
-    color: white;
+    color: var(--white);
     border-radius: .265rem;
 
     h3{
@@ -35,7 +44,7 @@ export const CardFront = styled.div`
     margin: 1.4rem 0;
 `
 export const CardBack = styled.div`
-    border-top: .1rem solid white;
+    border-top: .1rem solid var(--white);
     padding: 1rem 0 0 0;
     margin: .4rem 0;
 `
@@ -47,7 +56,7 @@ export const GroupButton = styled.div`
 `
 export const Button = styled.button`
     background-color: transparent;
-    color: white;
+    color: var(--white);
     padding: .6rem;
 
     svg{
@@ -58,4 +67,12 @@ export const Button = styled.button`
             filter: opacity(.8);
         }
     }
+`
+export const Text = styled.h1`
+    font-size: 4rem;
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 3rem;
+    color: var(--black);
+    font-weight: 300;
 `

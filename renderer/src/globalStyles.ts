@@ -6,6 +6,7 @@ export const GlobalStyle = createGlobalStyle`
     --purple:#9980FA;
     --black: #2F3742;
     --gray: #a2a2a2;
+    --white: #FFFFFF;
 
     //Edit toast variables
     --toastify-color-success: var(--purple);
@@ -48,7 +49,7 @@ export const GlobalStyle = createGlobalStyle`
       width: 100%;
       min-height: 400px;
       max-width: 680px;
-      background: white;
+      background: var(--white);
       padding: 3rem;
       position: relative;
       border-radius: 0.25rem;

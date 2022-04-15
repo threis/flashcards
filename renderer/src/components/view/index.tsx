@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { ICard } from '../../types/card'
 import { AiFillDelete } from 'react-icons/ai'
 import { RiPencilFill } from 'react-icons/ri'
-import { Wrapper, Card, CardFront, CardBack, GroupButton, Button } from './styles'
+import { Wrapper, Card, CardFront, CardBack, GroupButton, Button, Text, Box } from './styles'
 import { ViewModalEdit } from './modal-edit'
 import { ViewModalDelete } from './modal-delete'
 
@@ -29,7 +29,7 @@ function render(deck: ICard[]) {
 	const [toggleDeleteModal, setToggleDeleteModal] = useState(false)
 
 	if (!deck || deck.length === 0) {
-		return <h1>Você ainda não tem flashcards cadastrados</h1>
+		return <Box><Text>Você ainda não tem flashcards cadastrados!</Text></Box>
 	}
 
 	function handleEditCard(card: ICard) {

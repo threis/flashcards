@@ -7,7 +7,7 @@ import prepareNext from 'electron-next'
 import { createDir, existDb, load, save } from './deck-service'
 
 const userDataPath = app.getPath('userData')
-const icon = nativeImage.createFromPath(`${app.getAppPath()}/public/icon.png`)
+const icon = nativeImage.createFromPath(`${app.getAppPath()}/public/icon.ico`)
 
 app.on('ready', async () => {
 	await prepareNext('./renderer')
@@ -22,7 +22,6 @@ app.on('ready', async () => {
 		height: 800,
 		show: false,
 		resizable: false,
-		autoHideMenuBar: true,
 		webPreferences: {
 			nodeIntegration: false,
 			contextIsolation: false,
@@ -30,6 +29,7 @@ app.on('ready', async () => {
 		},
 	})
 	mainWindow.maximize()
+	mainWindow.setMenuBarVisibility(false)
 	mainWindow.show()
 
 	const url = isDev
