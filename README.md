@@ -17,7 +17,7 @@ This project is only available to Windows!
 
 ##  How to start ## 
 
-Use npm to install all dependencies: 
+Use npm or yarn to install all dependencies: 
 
 ***
     npm install
